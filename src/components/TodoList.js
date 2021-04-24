@@ -1,4 +1,5 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import AddNewTodo from './AddNewTodo';
 
 const TodoList = () => {
     const [todos, setTodos] = useState([
@@ -6,10 +7,10 @@ const TodoList = () => {
          {text : 'Do Your homework', id: 2},
          {text : 'Feed the dog', id: 3},
      ]);
-    const addTodo = () => {
+    const addTodo = (text) => {
         setTodos([
             ...todos, //get all the todos previous ones.
-            {text: 'Learn hooks', id: Math.random()}
+            {text,  id: Math.random()}
         ])
     }   
     return (
@@ -28,7 +29,7 @@ const TodoList = () => {
                     })
                 }
             </ul>
-            <button onClick={addTodo}>Add a todo</button>
+            <AddNewTodo addTodo={addTodo} />
         </div>
     )
 }
